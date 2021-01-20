@@ -19,6 +19,16 @@ if start == "Yes":
 
     if direction == "Left":
         print("Nice Choice ✅ \n")
+
+        activity = input("What will you do? Swim or Wait\n").title()
+
+        if activity == "Wait":
+            print("Wise Choice ✅ \n")
+        elif activity == "Swim":
+            print("****************  ❌ GAME OVER ❌ ****************\n")
+        else:
+            print("Invalid Response")
+
     elif direction == "Right":
         print("****************  ❌ GAME OVER ❌ ****************\n")
     else:
