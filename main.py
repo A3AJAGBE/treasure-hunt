@@ -24,6 +24,16 @@ if start == "Yes":
 
         if activity == "Wait":
             print("Wise Choice ✅ \n")
+
+            door = input("Which door will you enter? Red, Yellow or Blue\n").title()
+
+            if door == "Yellow":
+                print("**************** Treasure Found 💎 💎 , YOU WON 🎉️🎉️️ ****************\n")
+            elif door == "Red" or door == "Blue":
+                print("**************** ❌ GAME OVER ❌ ****************\n")
+            else:
+                print("Invalid Response")
+
         elif activity == "Swim":
             print("****************  ❌ GAME OVER ❌ ****************\n")
         else:
