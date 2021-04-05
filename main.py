@@ -14,7 +14,7 @@ def first(first_response):
         print("Nice Choice ✅ \n")
         return True
     elif first_response == 'l' or first_response == 'r':
-        print("Ouch, Better luck next time.\n")
+        print("Ouch, not a good start.\n")
         print("****************  ❌ GAME OVER ❌ ****************\n")
         return False
     else:
@@ -40,7 +40,20 @@ def third(third_response):
         print("Good Choice ✅ \n")
         return True
     elif third_response == 'l':
-        print("You were so close, well-done 👏🏽.\n")
+        print("Better luck next time 🤞🏽.\n")
+        print("****************  ❌ GAME OVER ❌ ****************\n")
+        return False
+    else:
+        print("Invalid Response.\n")
+        hunt_func()
+
+
+def fourth(fourth_response):
+    if fourth_response == 'b':
+        print("Awesome Choice ✅ \n")
+        return True
+    elif fourth_response == 'r':
+        print("Damn, you were so close, well-done 👏🏽\n")
         print("****************  ❌ GAME OVER ❌ ****************\n")
         return False
     else:
@@ -72,7 +85,13 @@ def hunt_func():
                       "There are two directions to proceed (left or right).")
                 step_three = input("(L or R): What way to go? ").lower()
 
-                third(step_three)
+                if third(step_three):
+                    print("They are two doors, a red and a black door, which you will open with the key found.")
+                    step_four = input("(R or B): What is your choice? ").lower()
+
+                    if fourth(step_four):
+                        print(f"Congratulations 👏🏽👏🏽👏🏽. Your hunt for {gift} was successful.")
+                        print("*************************  YOU WON 🎉️🎉️️ ************************* \n")
 
     elif start == "No":
         print("Whenever you are ready.")
