@@ -1,50 +1,30 @@
 """
 This application is a basic treasure hunt game.
 """
-
+import random
 from logo import logo
 
-# Displays at the beginning
 print(logo)
-print("Welcome on this awesome adventure\n")
+print('🚨: Every invalid response, restarts the game.\n')
+TREASURES = ['an Airforce 1', 'a MacBook Pro', 'an Xbox']
 
-start = input("Are you are ready to begin? Yes or No \n").title()
 
-# Verify the question response
-if start == "Yes":
-    print("Alright let the hunt begin!!!\n")
-    print("***********************************************\n")
+def hunt_func():
 
-    direction = input("What direction will you like to begin? Left or Right\n").title()
+    start = input("(Yes or No): Are you are ready to begin? ").title()
 
-    if direction == "Left":
-        print("Nice Choice ✅ \n")
+    # Verify the question response
+    if start == "Yes":
+        gift = random.choice(TREASURES)
+        print(f"The hunt is for {gift}.\nBe Careful and Happy hunting.")
+        print("***********************************************\n")
 
-        activity = input("What will you do? Swim or Wait\n").title()
-
-        if activity == "Wait":
-            print("Wise Choice ✅ \n")
-
-            door = input("Which door will you enter? Red, Yellow or Blue\n").title()
-
-            if door == "Yellow":
-                print("**************** Treasure Found 💎 💎 , YOU WON 🎉️🎉️️ ****************\n")
-            elif door == "Red" or door == "Blue":
-                print("**************** ❌ GAME OVER ❌ ****************\n")
-            else:
-                print("Invalid Response")
-
-        elif activity == "Swim":
-            print("****************  ❌ GAME OVER ❌ ****************\n")
-        else:
-            print("Invalid Response")
-
-    elif direction == "Right":
-        print("****************  ❌ GAME OVER ❌ ****************\n")
+    elif start == "No":
+        print("Whenever you are ready.")
     else:
-        print("Invalid Response")
+        print("Invalid Response.\n")
+        hunt_func()
 
-elif start == "No":
-    print("Restart the game, when you are ready")
-else:
-    print("Invalid Response")
+
+hunt_func()
+
