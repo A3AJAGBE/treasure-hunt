@@ -24,10 +24,23 @@ def first(first_response):
 
 def second(second_response):
     if second_response == 'g':
-        print("Nice Choice ✅ \n")
+        print("Right Choice ✅ \n")
         return True
     elif second_response == 'p' or second_response == 'b':
         print("That gotta hurt. Try again\n")
+        print("****************  ❌ GAME OVER ❌ ****************\n")
+        return False
+    else:
+        print("Invalid Response.\n")
+        hunt_func()
+
+
+def third(third_response):
+    if third_response == 'r':
+        print("Good Choice ✅ \n")
+        return True
+    elif third_response == 'l':
+        print("You were so close, well-done 👏🏽.\n")
         print("****************  ❌ GAME OVER ❌ ****************\n")
         return False
     else:
@@ -54,7 +67,12 @@ def hunt_func():
                   "There is a pink, blue, and green box.")
             step_two = input("(P, B, G): Which will you open? ").lower()
 
-            second(step_two)
+            if second(step_two):
+                print("You found a key in the box, with an arrow drawn on plain paper.\n"
+                      "There are two directions to proceed (left or right).")
+                step_three = input("(L or R): What way to go? ").lower()
+
+                third(step_three)
 
     elif start == "No":
         print("Whenever you are ready.")
